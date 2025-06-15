@@ -1,4 +1,5 @@
-const API_URL = 'https://TU-BACKEND-ONLINE.com/api/chat'; // Cambiar luego por el real
+const API_URL = 'http://pages-production-b821.up.railway.app:8080/';
+
 
 function agregarAlChat(texto, clase) {
   const chat = document.getElementById("chat-box");
