@@ -1,13 +1,18 @@
 from flask import Flask, request, jsonify
+import json
 
 app = Flask(__name__)
+
+with open('respuestas.json', 'r', encoding='utf-8') as f:
+    respuestas = json.load(f)
 
 @app.route("/", methods=["POST"])
 def chat():
     data = request.get_json()
-    mensaje = data.get("mensaje", "")
-    # Aquí puedes leer tu JSON con respuestas y devolver alguna respuesta fija para test
-    respuesta = "Hola, recibí: " + mensaje
+    mensaje = data.get("mensaje", "").lower()
+
+    respuesta = respuestas.get(mensaje, respuestas.get("default", "No entiendo."))
+
     return jsonify({"respuesta": respuesta})
 
 if __name__ == "__main__":
