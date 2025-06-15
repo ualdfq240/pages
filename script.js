@@ -1,4 +1,5 @@
-const API_URL = 'http://pages-production-b821.up.railway.app:8080/';
+const API_URL = 'https://pages-production-b821.up.railway.app/';
+
 
 
 function agregarAlChat(texto, clase) {
